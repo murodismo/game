@@ -1,0 +1,89 @@
+/* ============ Ofitsiant ishi sahifasi (umumiy ko'rinish courier.css dan) ============ */
+.waiter { background: #f6e6cf; }
+/* sahna dunyosi: tor ekranda Sardorga ergashib siljiydi */
+.wt-world { position: absolute; left: 0; bottom: 0; transition: transform .6s ease; }
+.wt-world .courier-scene { position: absolute; inset: 0; }
+.wt-sardor { transition-property: left; transition-timing-function: linear; }
+.wt-sardor.flip { transform: scaleX(-1); }
+
+/* zal: stollar */
+.wt-table.closed { opacity: .7; }
+.wt-table.pick { cursor: pointer; outline: none; }
+.wt-table.pick:hover, .wt-table.pick:focus-visible { filter: brightness(1.06) drop-shadow(0 0 8px rgba(255, 210, 122, .95)); }
+.wt-ring { fill: none; stroke: #ffd27a; stroke-width: 4; stroke-dasharray: 10 8; animation: wt-ring 1.2s linear infinite; }
+@keyframes wt-ring { to { stroke-dashoffset: -36; } }
+.wt-guest { animation: cr-fade .4s; }
+.wt-wave { animation: wt-bob 1.6s ease-in-out infinite; }
+/* belgi atigi ~10 piksel oralig'ida yuqori-pastga tebranadi */
+@keyframes wt-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+/* ovqat yeyish: qoshiq likopchadan og'izga */
+.wt-spoon { animation: wt-spoon 1.1s ease-in-out infinite; }
+@keyframes wt-spoon { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(38px, -28px); } }
+
+.wt-card button { background: linear-gradient(180deg, #e0434a, #b81f27); box-shadow: 0 3px 0 #7d1218; }
+
+/* ilova */
+.wt-app .cr-app-head { background: linear-gradient(135deg, #c0262d, #7d1218); }
+.wt-tabs { grid-template-columns: repeat(4, 1fr); }
+.wt-tabs button.on { color: #c0262d; }
+.wt-dish i { font-style: normal; font-size: 22px; line-height: 1; }
+
+/* buyurtmani eshitish: mehmonning gap pufagi */
+.wt-take { position: absolute; inset: 0; z-index: 20; display: grid; place-items: center; padding: 16px; background: rgba(15, 30, 50, .3); animation: cr-fade .2s; }
+.wt-bubble {
+  position: relative; width: min(380px, 100%); padding: 16px 18px; border-radius: 22px; background: #fff;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, .3); animation: cr-pop .25s ease-out;
+}
+.wt-bubble::after { content: ''; position: absolute; left: 50%; bottom: -14px; border: 14px solid transparent; border-bottom: 0; border-top-color: #fff; transform: translateX(-50%); }
+.wt-bubble h2 { margin: 0; font-size: 18px; }
+.wt-bubble h2 small { margin-left: 6px; padding: 2px 8px; border-radius: 8px; background: #2b2f36; color: #fff; font-size: 12px; vertical-align: 2px; }
+.wt-bubble p { margin: 4px 0 10px; color: #4b5866; font-size: 14px; font-style: italic; }
+.wt-say { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; margin: 0 0 12px; padding: 0; list-style: none; perspective: 500px; }
+.wt-say li {
+  display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 4px; border-radius: 14px;
+  background: linear-gradient(180deg, #fff7ec, #ffe6c7); animation: wt-flip .45s both;
+}
+.wt-say li:nth-child(2) { animation-delay: .1s; } .wt-say li:nth-child(3) { animation-delay: .2s; }
+.wt-say li:nth-child(4) { animation-delay: .3s; } .wt-say li:nth-child(5) { animation-delay: .4s; }
+@keyframes wt-flip { from { transform: rotateX(-80deg); opacity: 0; } }
+.wt-say span { font-size: 34px; filter: drop-shadow(0 3px 2px rgba(0, 0, 0, .2)); }
+.wt-say b { font-size: 13px; }
+.wt-say em { font-style: normal; font-weight: 800; color: #c0262d; }
+.wt-memo { display: block; height: 8px; border-radius: 4px; background: #eef1f5; overflow: hidden; }
+.wt-memo > i { display: block; height: 100%; background: linear-gradient(90deg, #e0434a, #ffb44d); transition: width .25s linear; }
+
+/* oshxona o'yini (do'kon o'yini klasslari ustiga) */
+.wt-kitchen .shop-head { background: linear-gradient(135deg, #c0262d, #7d1218); }
+.wt-notes .cr-btn { font-size: 13px; }
+.wt-notes-hint { margin: 0; font-size: 13px; color: #4b5866; }
+.wt-ic { font-style: normal; }
+.wt-counter { background: linear-gradient(180deg, #b6bec8, #87909a); box-shadow: inset 0 0 0 6px #87909a, 0 14px 24px rgba(0, 0, 0, .2); }
+.wt-prod { background: linear-gradient(180deg, #f4f6f9 0 84%, #c9ced6 84% 90%, #9aa3ad 90%); }
+.wt-plate i { display: grid; place-items: center; width: 58px; height: 58px; margin: 0 auto; border-radius: 50%; font-style: normal; font-size: 32px;
+  background: radial-gradient(circle, #fff 55%, #e4e8ee 56% 70%, #fff 71%); box-shadow: 0 3px 0 #c9ced6; }
+.wt-tray { padding: 4px 10px; border-radius: 999px; background: linear-gradient(180deg, #eef1f5, #c9ced6); }
+.wt-tray.no { animation: shop-no .4s; }
+.wt-in i { display: grid; place-items: center; width: 32px; height: 32px; font-style: normal; font-size: 22px; }
+
+.wt-res-sub { margin: 0 0 6px; font-size: 13px; color: #6b7780; }
+
+@media (max-width: 720px) {
+  .wt-counter { grid-template-columns: repeat(4, 1fr); }
+  .wt-plate i { width: 46px; height: 46px; font-size: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wt-world, .wt-sardor { transition: none; }
+  .wt-ring, .wt-wave, .wt-spoon, .wt-say li, .wt-bubble { animation: none; }
+}
+
+/* stol tanlash tugmalari (tor ekranda zal to'liq ko'rinmasa ham tanlash mumkin) */
+.wt-pick { display: flex; gap: 6px; }
+.wt-pick-btn { width: 34px; height: 34px; padding: 0; border-radius: 10px; background: #2b2f36; color: #fff; font-weight: 800; box-shadow: 0 2px 0 #14171b; }
+.wt-pick-btn.no { background: #c92a2a; opacity: .6; }
+.waiter .cr-trip { flex-wrap: wrap; justify-content: center; }
+@media (max-width: 720px) {
+  .waiter .cr-trip { bottom: 82px; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .waiter .cr-trip { bottom: 18px; }
+}
