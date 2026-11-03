@@ -1,6 +1,7 @@
 // Access token faqat xotirada saqlanadi (localStorage emas).
 // Refresh token httpOnly cookie'da, uni brauzer o'zi yuboradi.
 import { setVitals } from './vitals.js';
+import { API_URL } from './config.js';
 
 let accessToken = null;
 let refreshPromise = null;
@@ -10,9 +11,10 @@ export function setAccessToken(token) {
 }
 
 async function request(path, options = {}) {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_URL}/api${path}`, {
     ...options,
-    credentials: 'same-origin',
+    // backend boshqa domenda bo'lsa (Render), cookie yuborilishi uchun 'include' kerak
+    credentials: API_URL ? 'include' : 'same-origin',
     headers: {
       'Content-Type': 'application/json',
       ...(accessToken && { Authorization: `Bearer ${accessToken}` }),
